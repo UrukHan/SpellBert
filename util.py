@@ -1,9 +1,7 @@
 import importlib
-from spellBert import data_dir
 import os
 
-DEFAULT_DATA_PATH =  os.path.join(data_dir, 'new_models')
-#'D:/Google/NeuroNet/BERT/SpellBert/new_models' 
+DEFAULT_DATA_PATH =  '/content/SpellBert/new_models' 
 
 def is_module_available(module_name: str):
     """
