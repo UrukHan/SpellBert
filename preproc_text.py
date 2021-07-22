@@ -73,12 +73,11 @@ def load_clean(path):
 
     return data
 
-def clean_txt(data):
-    temp_data = data
+def clean_txt(data, save_path):
 
-    file = open('/content/SpellBert/clean.txt', 'w', encoding="utf8") 
+    file = open(save_path, 'w', encoding="utf8") 
     temp = ''
-    for i in tqdm(temp_data):
+    for i in tqdm(data):
         if len(temp) == 0:
             temp = temp + i
         else:
@@ -89,13 +88,13 @@ def clean_txt(data):
     file.close()
     return
 
-def corrupt_txt(clean_path):
-    opfile = open(clean_path, "r", encoding="utf8")
+def corrupt_txt(data, save_path):
+    opfile = open(data, "r", encoding="utf8")
     corrupt_file = []
     for line in tqdm(opfile):
         if line.strip() != "": corrupt_file.append(line.strip())
     corrupt_file = distort(corrupt_file)
-    file = open('/content/SpellBert/corrupt.txt', 'w', encoding="utf8") 
+    file = open(save_path, 'w', encoding="utf8") 
     temp = ''
     for i in tqdm(corrupt_file):
         if len(temp) == 0:
