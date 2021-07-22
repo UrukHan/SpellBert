@@ -1,5 +1,5 @@
 import os
-import pickle
+import pickle5 as pickle #import pickle
 import sys
 from typing import List
 
@@ -139,8 +139,8 @@ def load_data(base_path, corr_file, incorr_file):
             
         except AssertionError:
             #print("# tokens in corr and incorr mismatch. retaining and trimming to min len.")
-            print(x_split)
-            print(y_split)
+            #print(x_split)
+            #print(y_split)
             mn = min([len(x_split), len(y_split)])
             corr_data[i] = " ".join(x_split[:mn])
             incorr_data[i] = " ".join(y_split[:mn])
