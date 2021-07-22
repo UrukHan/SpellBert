@@ -145,7 +145,7 @@ class BertChecker(Corrector):
         progress_write_file.flush()
 
         # train and eval
-        for epoch_id in range(START_EPOCH, N_EPOCHS + 1):
+        for epoch_id in range(START_EPOCH, N_EPOCHS):
             # check for patience
             if (epoch_id - argmax_dev_acc) > patience:
                 print("patience count reached. early stopping initiated")
@@ -174,9 +174,9 @@ class BertChecker(Corrector):
 
 
                 if len(batch_labels_) == 0:
-                    print("################")
-                    print("Not training the following lines due to pre-processing mismatch: \n")
-                    print("################")
+                    
+                    # print("Not training the following lines due to pre-processing mismatch: \n")
+
                     continue
                 else:
                     batch_labels, batch_sentences = batch_labels_, batch_sentences_
@@ -243,9 +243,9 @@ class BertChecker(Corrector):
                 batch_labels_, batch_sentences_, batch_bert_inp, batch_bert_splits = \
                     bert_tokenize_for_valid_examples(batch_labels, batch_sentences, self.bert_pretrained_name_or_path)
                 if len(batch_labels_) == 0:
-                    print("################")
-                    print("Not validating the following lines due to pre-processing mismatch: \n")
-                    print("################")
+ 
+                    # print("Not validating the following lines due to pre-processing mismatch: \n")
+ 
                     continue
                 else:
                     batch_labels, batch_sentences = batch_labels_, batch_sentences_
@@ -285,7 +285,7 @@ class BertChecker(Corrector):
 
             # save model, optimizer and test_predictions if val_acc is improved
             if valid_acc >= max_dev_acc:
-                #print(f"validation accuracy improved from {max_dev_acc:.4f} to {valid_acc:.4f}")
+                print(f"validation accuracy improved from {max_dev_acc:.4f} to {valid_acc:.4f}")
                 # name = "model.pth.tar".format(epoch_id)
                 # torch.save({
                 #     'epoch_id': epoch_id,
@@ -296,7 +296,7 @@ class BertChecker(Corrector):
                 #     os.path.join(CHECKPOINT_PATH, name))
                 name = "pytorch_model.bin"
                 torch.save(model.state_dict(), os.path.join(CHECKPOINT_PATH, name))
-                #print("Model saved at {} in epoch {}".format(os.path.join(CHECKPOINT_PATH, name), epoch_id))
+                print("Model saved at {} in epoch {}".format(os.path.join(CHECKPOINT_PATH, name), epoch_id))
                 save_vocab_dict(VOCAB_PATH, vocab)
 
                 # re-assign
