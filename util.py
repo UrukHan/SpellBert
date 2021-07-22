@@ -1,7 +1,7 @@
 import importlib
 import os
 
-DEFAULT_DATA_PATH =  '/content/SpellBert/new_models' 
+DEFAULT_DATA_PATH =  'D:/Google/NeuroNet/BERT/SpellBert/gdisc_models' 
 
 def is_module_available(module_name: str):
     """
