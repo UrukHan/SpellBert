@@ -95,7 +95,7 @@ def corrupt_txt(clean_path):
     for line in tqdm(opfile):
         if line.strip() != "": corrupt_file.append(line.strip())
     corrupt_file = distort(corrupt_file)
-    file = open('D:/Google/NeuroNet/BERT/SpellBert/corrupt.txt', 'w', encoding="utf8") 
+    file = open('/content/SpellBert/corrupt.txt', 'w', encoding="utf8") 
     temp = ''
     for i in tqdm(corrupt_file):
         if len(temp) == 0:
