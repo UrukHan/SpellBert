@@ -1,8 +1,6 @@
 import importlib
 import os
 
-DEFAULT_DATA_PATH =  'D:/Google/NeuroNet/BERT/SpellBert/gdisc_models' 
-
 def is_module_available(module_name: str):
     """
     checks if a module is available or not (eg. _is_module_available("sentence_transformers"))
