@@ -70,6 +70,7 @@ class BertChecker(Corrector):
                  clean_file,
                  corrupt_file,
                  data_dir,
+                 model_dir,
                  n_epochs=2,
                  batch_size = 16,
                  new_vocab_list: List = None):
@@ -96,7 +97,7 @@ class BertChecker(Corrector):
         GRADIENT_ACC = 4
         DEVICE = self.device
         START_EPOCH, N_EPOCHS = 0, n_epochs
-        CHECKPOINT_PATH = os.path.join(self.ckpt_path if self.ckpt_path else data_dir, "new_models",
+        CHECKPOINT_PATH = os.path.join(self.ckpt_path if self.ckpt_path else model_dir,
                                        os.path.split(self.bert_pretrained_name_or_path)[-1])
         if os.path.exists(CHECKPOINT_PATH):
             num = 1
