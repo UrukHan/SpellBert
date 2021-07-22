@@ -6,7 +6,6 @@ import numpy as np
 import torch
 from pytorch_pretrained_bert import BertAdam
 
-from util import DEFAULT_DATA_PATH
 from corrector import Corrector
 from helpers import bert_tokenize_for_valid_examples
 from helpers import load_data, load_vocab_dict, save_vocab_dict
@@ -80,7 +79,6 @@ class BertChecker(Corrector):
                                       "in the finetune step; however, new vocab is accepted at training time.")
 
         # load data and split in train-validation
-        data_dir = DEFAULT_DATA_PATH if data_dir == "default" else data_dir
         train_data = load_data(data_dir, clean_file, corrupt_file)
         train_data, valid_data = train_validation_split(train_data, 0.9, seed=11690)
         print("len of train and test data: ", len(train_data), len(valid_data))
