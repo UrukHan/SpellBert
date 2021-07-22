@@ -61,13 +61,20 @@ def load_clean(path):
         splits = temp.split('.')
 
         for i in splits:
-          if len(i) > 5 and len(i) < 300:
-            data.append(i + '.')
+          if len(i) > 2 and i[0] == ' ':
+            i = i[1:]
+          if len(i) > 20 and len(i) < 300:
+            ind = 0
+            for k in range(len(i)):
+              if k != 0 and i[k] == ' ' and i[k-1] == ' ':
+                ind = 1
+            if ind == 0:
+              data.append(i + '.')
 
     return data
 
 def clean_txt(data):
-    temp_data = data#[:10000]
+    temp_data = data
 
     file = open('D:/Google/NeuroNet/BERT/SpellBert/clean.txt', 'w', encoding="utf8") 
     temp = ''
