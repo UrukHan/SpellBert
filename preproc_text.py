@@ -89,7 +89,7 @@ def clean_txt(data, save_path):
 
   file.write(temp) 
   file.close()
-    return
+  return
 
 def corrupt_txt(data, save_path):
   ''' Функция сохранения данных с ошибками в файл '''
@@ -109,3 +109,4 @@ def corrupt_txt(data, save_path):
           temp = temp + i
   file.write(temp) 
   file.close()
+  return
