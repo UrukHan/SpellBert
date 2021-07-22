@@ -76,7 +76,7 @@ def load_clean(path):
 def clean_txt(data):
     temp_data = data
 
-    file = open('D:/Google/NeuroNet/BERT/SpellBert/clean.txt', 'w', encoding="utf8") 
+    file = open('/content/SpellBert/clean.txt', 'w', encoding="utf8") 
     temp = ''
     for i in tqdm(temp_data):
         if len(temp) == 0:
